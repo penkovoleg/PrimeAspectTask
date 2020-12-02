@@ -16,7 +16,7 @@ public class HandlerFiles extends Thread{
 
     private File inputFile;
     private File outputFile;
-    public static final Set<String> resultSet = new TreeSet<>();
+    private Set<String> resultSet = new TreeSet<>();
 
     public HandlerFiles(File file){
         this.inputFile = file;
