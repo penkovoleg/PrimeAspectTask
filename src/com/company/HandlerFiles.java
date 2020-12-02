@@ -12,22 +12,22 @@ import java.util.*;
  * то из раннее созданого файлы парсятся значения и сливаются с новыми, тем самым получаем уникальность значений.
  */
 
-public class HandlerFiles extends Thread{
+public class HandlerFiles extends Thread {
 
     private File inputFile;
     private File outputFile;
     private Set<String> resultSet = new TreeSet<>();
 
-    public HandlerFiles(File file){
+    public HandlerFiles(File file) {
         this.inputFile = file;
     }
 
     @Override
-    public void run(){
+    public void run() {
         this.Processing();
     }
 
-    public void Processing(){
+    public void Processing() {
         try {
             BufferedReader brF = new BufferedReader(new FileReader(inputFile));
             String line = brF.readLine();
@@ -54,7 +54,7 @@ public class HandlerFiles extends Thread{
                     FileWriter fw = new FileWriter(outputFile);
                     StringBuffer sb = new StringBuffer();
                     Iterator<String> iterator = resultSet.iterator();
-                    while(iterator.hasNext()){
+                    while (iterator.hasNext()) {
                         sb.append(iterator.next().concat(";"));
                     }
                     fw.write(String.valueOf(sb));
